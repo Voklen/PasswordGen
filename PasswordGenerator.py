@@ -17,7 +17,7 @@ while True:
                 print("try a resonable number")
             else:
                 break
-    except:
+    except ValueError:
         print("Please type in a --->number<---")
         print("Lets try that again")
 
