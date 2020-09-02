@@ -1,2 +1,2 @@
 # PasswordGen
-Just a password generator I wrote (Run in python 3).
+Just a password generator I wrote (Run with python 3, not 2).
