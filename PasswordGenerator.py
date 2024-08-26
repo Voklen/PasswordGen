@@ -1,27 +1,33 @@
-import string
 import random
-i = 0
-error = 0
-password = str()
-lettersAndPunctuation = string.punctuation + string.ascii_letters
+import string
 
-while True:
+i = 0
+password = str()
+lettersAndPunctuationAndNumbers = (
+    string.ascii_letters + string.punctuation + "0123456789"
+)
+
+
+def AskForLenthOfPassword():
     print("How long do you want your password to be?")
     try:
         lenthOfPassword = int(input())
-        if lenthOfPassword < 0:
-            print("*ahem*")
-            print("Lets try that again")
-        else:
-            if lenthOfPassword > 1000000:
-                print("try a resonable number")
-            else:
-                break
     except ValueError:
         print("Please type in a --->number<---")
         print("Lets try that again")
+        return AskForLenthOfPassword()
+    if lenthOfPassword < 0:
+        print("*ahem*")
+        print("Lets try that again")
+        return AskForLenthOfPassword()
+    if lenthOfPassword > 1000000:
+        print("try a resonable number")
+        return AskForLenthOfPassword()
+    return lenthOfPassword
 
+
+lenthOfPassword = AskForLenthOfPassword()
 while i < lenthOfPassword:
-    i = i+1
-    password = password + random.choice(lettersAndPunctuation)
-print (password)
+    i = i + 1
+    password = password + random.choice(lettersAndPunctuationAndNumbers)
+print(password)
